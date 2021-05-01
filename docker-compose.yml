@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  scrapyd:
+    build:
+      context: .
+      args:
+        USER_ID: ${USER_ID:-1001}
+        GROUP_ID: ${GROUP_ID:-1001}
+    ports:
+      - 6800
+    volumes:
+      - logs:/var/log/scrapyd/
+      - db:/var/lib/scrapyd/
+
+volumes:
+  logs:
+  db:
