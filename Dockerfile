@@ -23,7 +23,7 @@ RUN set -ex; \
   mkdir -p /var/log/scrapyd/ /var/lib/scrapyd/ ;\
   chown -R scrapyd /var/log/scrapyd/ /var/lib/scrapyd/
 
-EXPOSE 6800
+EXPOSE 5000
 
 VOLUME ["/var/log/scrapyd/", "/var/lib/scrapyd/"]
 
