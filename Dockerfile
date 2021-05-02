@@ -12,7 +12,9 @@ RUN set -ex; \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
   rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install -U -r requirements.txt
+COPY requirements.txt /tmp/requirements.txt
+RUN set -ex; \
+    pip3 install -U -r /tmp/requirements.txt
 
 ARG USER_ID=1001
 ARG GROUP_ID=1001
