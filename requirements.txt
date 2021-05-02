@@ -1,0 +1,4 @@
+twisted==21.2.0  # scrapyd
+scrapyd==1.2.1  # scrapyd
+pytz==2019.3  # scrapenews
+python-slugify==4.0.0  # scrapenews

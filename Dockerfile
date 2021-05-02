@@ -12,7 +12,7 @@ RUN set -ex; \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
   rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install -U twisted==21.2.0 scrapyd==1.2.1
+RUN pip3 install -U -r requirements.txt
 
 ARG USER_ID=1001
 ARG GROUP_ID=1001
