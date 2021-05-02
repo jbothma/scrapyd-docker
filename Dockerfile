@@ -19,15 +19,19 @@ ARG GROUP_ID=1001
 
 RUN set -ex; \
   addgroup --gid $GROUP_ID --system scrapyd; \
-  adduser --system --uid $USER_ID --gid $GROUP_ID scrapyd
+  adduser --system --uid $USER_ID --gid $GROUP_ID scrapyd; \
+  mkdir -p /var/log/scrapyd/ /var/lib/scrapyd/ ;\
+  chown -R scrapyd /var/log/scrapyd/ /var/lib/scrapyd/
 
 EXPOSE 6800
 
 VOLUME ["/var/log/scrapyd/", "/var/lib/scrapyd/"]
 
-#RUN set -ex; \
-#    mkdir /etc/scrapyd/
-#COPY scrapyd.conf /etc/scrapyd/scrapyd.conf
+RUN set -ex; \
+    mkdir /etc/scrapyd/
+COPY scrapyd.conf /etc/scrapyd/scrapyd.conf
+
+WORKDIR /var/lib/scrapyd/
 
 USER scrapyd
 
